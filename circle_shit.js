@@ -1,4 +1,4 @@
-var circ_size = 10;
+var circ_size = 100;
 var multiplier = 2;
 var radius = 350;
 var x_offset = 400;
