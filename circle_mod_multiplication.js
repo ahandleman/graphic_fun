@@ -38,6 +38,9 @@ function draw() {
 
 function reset(event) {
   curr_time = 0;
+  running = true;
+  tick();
+  running = false;
 }
 
 function button(event) {
