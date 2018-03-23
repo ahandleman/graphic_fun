@@ -3,7 +3,10 @@ var multiplier = 2;
 var radius = 350;
 var x_offset = 400;
 var y_offset = 400;
-
+var curr_time = 0;
+var full_time = 200;
+var running = false;
+var rate = 20;
 function x_from_number(number) {
   var degree = (number / circ_size)*2*Math.PI;
   return x_offset + (Math.sin(degree) * radius);
@@ -32,10 +35,36 @@ function draw() {
   }
 
 }
-function update(event) {
-  circ_size = document.getElementById("circ_size").value;
-  multiplier = document.getElementById("multiplier").value;
-  redraw();
+
+function reset(event) {
+  curr_time = 0;
 }
+
+function button(event) {
+  full_time = document.getElementById("rate").value*document.getElementById("time").value;
+  running = !running;
+  rate = document.getElementById("rate").value;
+}
+
+function update_time(event) {
+  var temp = curr_time/full_time;
+  full_time = document.getElementById("rate").value*document.getElementById("time").value;
+  rate = document.getElementById("rate").value;
+}
+
+function tick() {
+  if(running) {
+    circ_size = document.getElementById("circ_size_start").value*((full_time-curr_time)/full_time) + document.getElementById("circ_size_end").value*(curr_time/full_time);
+    multiplier = document.getElementById("multiplier_start").value*((full_time-curr_time)/full_time) + document.getElementById("multiplier_end").value*(curr_time/full_time);
+    document.getElementById("circ_size_curr").value = circ_size;
+    document.getElementById("multiplier_curr").value = multiplier;
+    curr_time++;
+    curr_time = curr_time%full_time;
+    redraw();
+  }
+  setTimeout(tick, 1000/rate);
+}
+
+tick();
 
 
