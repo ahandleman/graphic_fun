@@ -6,40 +6,40 @@ var running = false;
 var rate = 20;
 
 function setup() {
-  // Sets the screen to be 720 pixels wide and 400 pixels high
-  createCanvas(2000, 2000);
-  noLoop();
-  background(255,255,255);
+// Sets the screen to be 720 pixels wide and 400 pixels high
+createCanvas(2000, 2000);
+noLoop();
+background(255,255,255);
 }
 
 function iterateEquation(real, imaginary)
 {
-  var Zr = 0;
-  var Zi = 0;
-  var Tr = 0;
-  var Ti = 0;
-  var n  = 0;
+	var Zr = 0;
+	var Zi = 0;
+	var Tr = 0;
+	var Ti = 0;
+	var n  = 0;
 
-  for ( ; n<curr_depth && (Tr+Ti)<=4; ++n ) {
-    Zi = 2 * Zr * Zi + real;
-    Zr = Tr - Ti + imaginary;
-    Tr = Zr * Zr;
-    Ti = Zi * Zi;
-  }
+	for ( ; n<curr_depth && (Tr+Ti)<=4; ++n ) {
+		Zi = 2 * Zr * Zi + real;
+		Zr = Tr - Ti + imaginary;
+		Tr = Zr * Zr;
+		Ti = Zi * Zi;
+	}
 
-  return [n, Tr, Ti];
+	return [n, Tr, Ti];
 }
 
 function draw() {
-  // Set the background to light grey and turn off the fill color
-  stroke(darkness);
-  for(var i = 0; i < 2000; i++) {
-  	for(var j = 0; j < 2000; j++) {
-  		if (iterateEquation((j/500) - 2, (i/500) - 2)[0] == curr_depth) {
-  			point(i,j);
-  		};
-  	}
-  }
+// Set the background to light grey and turn off the fill color
+stroke(darkness);
+for(var i = 0; i < 2000; i++) {
+	for(var j = 0; j < 2000; j++) {
+		if (iterateEquation((j/500) - 2, (i/500) - 2)[0] == curr_depth) {
+			point(i,j);
+		};
+	}
+}
 }
 
 function reset(event) {
