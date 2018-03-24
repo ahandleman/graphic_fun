@@ -5,6 +5,25 @@ var num_points = 25;
 var points = [];
 var curr_time = 0;
 var max_time = 0;
+var algorithm = 1;
+
+function set_speed() {
+	rate = document.getElementById("rate").value;
+	delay = 1000/rate;
+}
+
+//yes, I'm using insertion sort because it's easier to code.  Sue me.
+function sort_points() {
+	for(var i = 1; i < num_points; i++) {
+		for (var j = i; j > 0; j--) {
+			if (points[j].x < points[j-1].x) {
+				var temp = points[j];
+				points[j] = points[j-1];
+				points[j-1] = temp;
+			}
+		}
+	}
+}
 
 function generate_points(number) {
 	num_points = number;
@@ -102,7 +121,7 @@ function is_blue_line(p1, p2) {
 }
 
 function is_black_line(p1, p2) {
-	if((points[p1].black_lines[p2].length > 0) && points[p1].black_lines[p2][0] < curr_time) {
+	if((points[p1].black_lines[p2].length > 0) && points[p1].black_lines[p2][0] <= curr_time) {
 		return true;
 	} else {
 		return false;
@@ -140,6 +159,7 @@ function draw() {
 }
 
 function reset(event) {
+	set_speed();
 	running = false;
 	num_points = document.getElementById("num_points").value;
 	generate_points(num_points);
@@ -156,7 +176,17 @@ function tick() {
 
 function button(event) {
 	running = !running;
-	gift_wrap();
+	switch(algorithm){
+		case 0:
+		gift_wrap();
+		break;
+		case 1:
+		graham_alg();
+		break;
+		case 2:
+		merge_hull();
+		break;
+	}
 	curr_time = 0;
 }
 
@@ -198,6 +228,56 @@ function gift_wrap() {
 		add_black_line(current, testing, time_track++);
 		current = testing;
 	} while (current != rightmost);
+	max_time = time_track+1;
+	clean_highlight_blue();
+}
+
+function graham_alg() {
+	sort_points();
+	
+	var time_track = 0;
+	var current = 0;
+	var stack = [];
+
+	//first do the top
+	for(var i = 1; i < num_points; i++) {
+		add_red_line(current, i, time_track++);
+		while(stack.length > 0 && orient(stack[stack.length-1], current, i) < 0) {
+			toggle_blue_line(stack[stack.length-1], current, time_track);
+			current = stack.pop();
+			add_red_line(current, i, time_track++);
+		}
+		toggle_blue_line(current, i, time_track++);
+		stack.push(current);
+		current = i;
+	}
+	while(stack.length > 0) {
+		var temp = current;
+		current = stack.pop();
+		toggle_blue_line(temp, current, time_track);
+		add_black_line(temp, current, time_track);
+	}
+	time_track++;
+
+	//then the bottom
+	for(var i = 1; i < num_points; i++) {
+		add_red_line(current, i, time_track++);
+		while(stack.length > 0 && orient(stack[stack.length-1], current, i) > 0) {
+			toggle_blue_line(stack[stack.length-1], current, time_track);
+			current = stack.pop();
+			add_red_line(current, i, time_track++);
+		}
+		toggle_blue_line(current, i, time_track++);
+		stack.push(current);
+		current = i;
+	}
+	while(stack.length > 0) {
+		var temp = current;
+		current = stack.pop();
+		toggle_blue_line(temp, current, time_track);
+		add_black_line(temp, current, time_track);
+	}
+	time_track++;
 	max_time = time_track+1;
 	clean_highlight_blue();
 }

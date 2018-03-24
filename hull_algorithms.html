@@ -4,8 +4,9 @@
 	<script src="hull_algorithms.js"></script>
 </head>
 <body>
+	Algorithm: <button onclick="algorithm=0"> Giftwrap </button> <button onclick="algorithm=1"> Graham </button> <br>
 	Number of Points: <input id="num_points" type="number" value="10"> <br>
-	<button onclick="button()"> Start/Stop </button> <button onclick="reset()"> reset </button>
-	Current: Steps <number id="circ_size_curr" type="number" value="1"> <br>
+	<button onclick="button()"> Start/Stop </button> <button onclick="reset()"> reset </button> <br>
+	Number of steps per second: <input id="rate" type="number" onchange="set_speed()" value="3">
 </body>
 </html>
