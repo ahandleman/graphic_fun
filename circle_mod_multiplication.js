@@ -62,7 +62,10 @@ function tick() {
     document.getElementById("circ_size_curr").value = circ_size;
     document.getElementById("multiplier_curr").value = multiplier;
     curr_time++;
-    curr_time = curr_time%full_time;
+    if (curr_time >= full_time) {
+      curr_time = full_time;
+      running = false;
+    }
     redraw();
   }
   setTimeout(tick, 1000/rate);
