@@ -26,7 +26,7 @@ function setup() {
 
 function draw() {
   // Set the background to black and turn off the fill color
-  background(0);
+  background(255);
   stroke("green");
   ellipse(x_offset,y_offset,radius*2,radius*2);
   stroke("black");

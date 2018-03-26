@@ -1,0 +1,1293 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"togg",
+				"toggle_blue_line"
+			],
+			[
+				"ret",
+				"retval"
+			],
+			[
+				"poin",
+				"point_list"
+			],
+			[
+				"clea",
+				"clean_highlight_blue"
+			],
+			[
+				"conve",
+				"convert_blue_black"
+			],
+			[
+				"black",
+				"black_lines"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"gi",
+				"gift_wrap_helper"
+			],
+			[
+				"point",
+				"point_list"
+			],
+			[
+				"toggl",
+				"toggle_highlight"
+			],
+			[
+				"add",
+				"add_yellow_line"
+			],
+			[
+				"con",
+				"convert_blue_purple"
+			],
+			[
+				"purp",
+				"purple_lines"
+			],
+			[
+				"points",
+				"points"
+			],
+			[
+				"blue",
+				"blue_lines"
+			],
+			[
+				"blu",
+				"blue_lines"
+			],
+			[
+				"is",
+				"is_purple_line"
+			],
+			[
+				"searc",
+				"search_reorder"
+			],
+			[
+				"search",
+				"search_hull"
+			],
+			[
+				"first",
+				"firstpoint"
+			],
+			[
+				"in",
+				"in_time"
+			],
+			[
+				"poi",
+				"point_list"
+			],
+			[
+				"our",
+				"our_merge_hull_helper"
+			],
+			[
+				"po",
+				"point_list"
+			],
+			[
+				"curr",
+				"curr_time"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"to",
+				"toggle_blue_line"
+			],
+			[
+				"sort",
+				"sort_points"
+			],
+			[
+				"red",
+				"redraw"
+			],
+			[
+				"ma",
+				"max_time"
+			],
+			[
+				"time",
+				"time_track"
+			],
+			[
+				"tim",
+				"time_track"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"high",
+				"highlight_toggle"
+			],
+			[
+				"draw",
+				"draw_line"
+			],
+			[
+				"ge",
+				"generate_points"
+			],
+			[
+				"num",
+				"num_points"
+			],
+			[
+				"iter",
+				"iterateEquation"
+			],
+			[
+				"rea",
+				"real_add"
+			],
+			[
+				"ima",
+				"ima_add"
+			],
+			[
+				"cir",
+				"circ_size"
+			],
+			[
+				"fu",
+				"full_time"
+			],
+			[
+				"x",
+				"x_from_number"
+			],
+			[
+				"y",
+				"y_from_number"
+			],
+			[
+				"Aler",
+				"ALERT_STEAL"
+			],
+			[
+				"Clos",
+				"Closure_unlock"
+			],
+			[
+				"Clo",
+				"Closure_lock"
+			],
+			[
+				"deq",
+				"deque_lock_self"
+			],
+			[
+				"deque",
+				"deque_unlock_self"
+			],
+			[
+				"spawn",
+				"spawn_parent"
+			],
+			[
+				"ALE",
+				"ALERT_STEAL"
+			],
+			[
+				"Closur",
+				"Closure_lock"
+			],
+			[
+				"Closure_",
+				"Closure_unlock"
+			],
+			[
+				"Close",
+				"Closure"
+			],
+			[
+				"dequ",
+				"deque_unlock_self"
+			],
+			[
+				"STD",
+				"STDIN_FILENO"
+			],
+			[
+				"sock",
+				"sock_fd"
+			],
+			[
+				"pipe",
+				"pipefd"
+			],
+			[
+				"sig",
+				"sigaction"
+			],
+			[
+				"age",
+				"agents"
+			],
+			[
+				"gl",
+				"glp_add_rows"
+			],
+			[
+				"ob",
+				"obj_num"
+			],
+			[
+				"glp",
+				"glp_add_cols"
+			],
+			[
+				"o",
+				"obj_num"
+			],
+			[
+				"obj",
+				"obj_num"
+			],
+			[
+				"best",
+				"best_index"
+			],
+			[
+				"held",
+				"held_by"
+			],
+			[
+				"pri",
+				"print_solution"
+			],
+			[
+				"print",
+				"print_problem"
+			],
+			[
+				"he",
+				"held_by"
+			],
+			[
+				"seco",
+				"second_index"
+			],
+			[
+				"sec",
+				"second_val"
+			],
+			[
+				"secn",
+				"second_val"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"temp",
+				"temp_line"
+			],
+			[
+				"new",
+				"new_node"
+			],
+			[
+				"rbt",
+				"rbt_val"
+			],
+			[
+				"rbt_prin",
+				"rbt_print_all"
+			],
+			[
+				"rbt_",
+				"rbt_check"
+			],
+			[
+				"rbt_print",
+				"rbt_print_all_helper"
+			],
+			[
+				"rbt_c",
+				"rbt_check_helper"
+			],
+			[
+				"right",
+				"right_child"
+			],
+			[
+				"dir",
+				"dir2"
+			],
+			[
+				"line",
+				"line_number"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"length",
+				"length1"
+			],
+			[
+				"lin",
+				"line1"
+			],
+			[
+				"size",
+				"sizeof"
+			],
+			[
+				"dd",
+				"dd_push_input"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"remain",
+				"remaining_length"
+			],
+			[
+				"dd_",
+				"dd_print"
+			],
+			[
+				"data",
+				"data_dequeue"
+			],
+			[
+				"rbt_pop",
+				"rbt_bst_pop_lowest"
+			],
+			[
+				"rbt_des",
+				"rbt_destroy_helper"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"rem",
+				"remaining_length"
+			],
+			[
+				"mem",
+				"memcpy"
+			],
+			[
+				"remai",
+				"remaining_length"
+			],
+			[
+				"de",
+				"dequeue"
+			],
+			[
+				"pthre",
+				"pthread_res"
+			],
+			[
+				"pthread",
+				"pthread_sort"
+			],
+			[
+				"cilk",
+				"cilk_sort"
+			],
+			[
+				"target",
+				"target_threads"
+			],
+			[
+				"tar",
+				"target_threads"
+			],
+			[
+				"merge",
+				"merge_grain"
+			],
+			[
+				"args",
+				"args_1"
+			],
+			[
+				"source",
+				"source_2"
+			],
+			[
+				"sour",
+				"source_1"
+			],
+			[
+				"si",
+				"size_1"
+			],
+			[
+				"pthread_sort",
+				"pthread_sort_helper"
+			],
+			[
+				"index",
+				"index_1"
+			],
+			[
+				"sou",
+				"source"
+			],
+			[
+				"cilk_sor",
+				"cilk_sort_helper"
+			],
+			[
+				"sourc",
+				"source_1"
+			],
+			[
+				"binar",
+				"binary_search"
+			],
+			[
+				"siz",
+				"sizeof"
+			],
+			[
+				"seq",
+				"seq_sort_helper"
+			],
+			[
+				"helper",
+				"helper_array"
+			],
+			[
+				"turn",
+				"turn_count"
+			],
+			[
+				"player",
+				"player_turn"
+			],
+			[
+				"backgro",
+				"background-color: "
+			],
+			[
+				"debug",
+				"debug_group"
+			],
+			[
+				"vic",
+				"victory"
+			],
+			[
+				"row",
+				"row_number"
+			],
+			[
+				"col",
+				"column_number"
+			],
+			[
+				"board",
+				"board_arr"
+			],
+			[
+				"game",
+				"game_running"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 237,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mandelbrot.html",
+			"settings":
+			{
+				"buffer_size": 433,
+				"line_ending": "Unix",
+				"name": "mandelbrot.html"
+			}
+		},
+		{
+			"file": "hull_algorithms.js",
+			"settings":
+			{
+				"buffer_size": 16240,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "circle_mod_multiplication.html",
+			"settings":
+			{
+				"buffer_size": 872,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "hull_algorithms.html",
+			"settings":
+			{
+				"buffer_size": 555,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "circle_mod_multiplication.js",
+			"settings":
+			{
+				"buffer_size": 2068,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"print",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add a",
+				"Git: Add All"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"git gutt",
+				"GitGutter: Compare Against Branch"
+			],
+			[
+				"git pul",
+				"Git: Pull"
+			],
+			[
+				"git",
+				"Git: Toggle Annotations"
+			],
+			[
+				"git gut",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"tid",
+				"Tidy PHP"
+			],
+			[
+				"tidy",
+				"Tidy PHP"
+			],
+			[
+				"php",
+				"Tidy PHP"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: p",
+				"Snippet: Lorem ipsum"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Static_developement/graphical_shit/circle_mod_multiplication.js",
+		"/D/Static_developement/graphical_shit/mandelbrot.js",
+		"/D/Static_developement/graphical_shit/circle_mod_multiplication.html",
+		"/D/Static_developement/graphical_shit/hull_algorithms.js",
+		"/D/Static_developement/graphical_shit/hull_algorithms.html",
+		"/Z/cse539/runtime-handleman-olson/01core.out",
+		"/Z/cse539/runtime-handleman-olson/writeup.tex",
+		"/Z/cse539/runtime-handleman-olson/04core.out",
+		"/Z/cse539/runtime-handleman-olson/08core.out",
+		"/Z/cse539/runtime-handleman-olson/testing.sh",
+		"/Z/cse539/runtime-handleman-olson/test.sh",
+		"/Z/cse539/runtime-handleman-olson/job.sh",
+		"/Z/cse539/runtime-handleman-olson/runtime/closure.c",
+		"/Z/cse539/runtime-handleman-olson/runtime/debug.h",
+		"/Z/cse539/runtime-handleman-olson/16core.out",
+		"/Z/cse539/runtime-handleman-olson/runtime/Makefile",
+		"/Z/cse539/runtime-handleman-olson/runtime/scheduler.c",
+		"/Z/cse539/runtime-handleman-olson/02core.out",
+		"/Z/cse539/runtime-handleman-olson/README.md",
+		"/Z/cse539/runtime-handleman-olson/runtime/cilk-internal.h",
+		"/Z/cse539/runtime-handleman-olson/runtime/cilk2c.c",
+		"/Z/cse539/runtime-handleman-olson/runtime/cilk2c.h",
+		"/Z/cse539/runtime-handleman-olson/Makefile",
+		"/Z/cse539/runtime-handleman-olson/config.mk",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/Makefile",
+		"/Z/cse539/runtime-handleman-olson/src/cilk_mutex.h",
+		"/Z/cse539/runtime-handleman-olson/src/readydeque.h",
+		"/Z/cse539/runtime-handleman-olson/src/closure.h",
+		"/Z/cse539/runtime-handleman-olson/src/scheduler.c",
+		"/Z/cse539/runtime-handleman-olson/src/init.c",
+		"/Z/cse539/runtime-handleman-olson/src/invoke_main.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/getoptions.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/cilksort.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/getoptions.h",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/ktiming.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/ktiming.h",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/nqueens.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/mm_dac.c",
+		"/Z/cse539/runtime-handleman-olson/handcomp_test/fib.c",
+		"/Z/cse539/runtime-handleman-olson/src/cilk_mutex.c",
+		"/Z/cse539/runtime-handleman-olson/src/fiber.c",
+		"/Z/cse361_sp_18_grade/exercise2/manya.segireddy/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/kevin.vancleave/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/liaoxingjue/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/exe2-grading-TAs/exe2-rubric.txt",
+		"/Z/cse361_sp_18_grade/exercise2/exe2-grading-TAs/roster.txt",
+		"/Z/cse361_sp_18_grade/exercise2/exe2-grading-TAs/exe2-output-all.txt",
+		"/Z/cse361_sp_18_grade/exercise2/andrew.lee810/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/minseopkim/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/exe2-grading-TAs/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/minseopkim/exe2/swap.c",
+		"/Z/cse361_sp_18_grade/exercise2/minseopkim/exe2/swap.h",
+		"/Z/cse361_sp_18_grade/exercise2/a.keri/exe2/exe2-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise2/adam.kern/exe2/exe2-grade.txt",
+		"/Z/cse522/io_event_handling/studio.h",
+		"/Z/cse522/io_event_handling/2_select_server/client.c",
+		"/Z/cse522/io_event_handling/2_select_server/server.c",
+		"/Z/cse522/io_event_handling/2_select_server/shared.h",
+		"/Z/cse522/signals/test_programs/out.txt",
+		"/Z/cse522/signals/test_programs/dense_mm",
+		"/Z/cse516/Assignment/problem_structs.h",
+		"/Z/cse522/cse522-lab1/Makefile",
+		"/Z/332l4/lab4.cpp",
+		"/Z/cse522/cse522-lab1/red_black_tree.c",
+		"/Z/cse522/cse522-lab1/testing.c",
+		"/Z/cse522/cse522-lab1/readme.txt",
+		"/Z/cse522/cse522-lab1/data_dequeue.c",
+		"/Z/CSE422~1/project3/webcrawler/project3a/Makefile",
+		"/Z/cse522/cse522-lab1/data_dequeue.h",
+		"/Z/cse522/cse522-lab1/red_black_tree.h",
+		"/Z/cse522/cse522-lab1/data_queue.c",
+		"/C/Users/Aaron/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Aaron/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Aaron/AppData/Local/Temp/tmppnex4p.html",
+		"/C/Users/Aaron/AppData/Local/Temp/tmpe2qlzz.html",
+		"/C/Users/Aaron/AppData/Roaming/Sublime Text 2/Packages/User/Print to HTML.sublime-settings",
+		"/C/Users/Aaron/AppData/Local/Temp/tmp5so5qp.html",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/AaronHeader.h",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/AaronSource.cpp",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/AaronHandlemanLab1.cpp",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/GamePiecesSource.cpp",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/GamePiecesHeader.h",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/GameBoardSource.cpp",
+		"/Z/My Documents/Visual Studio 2013/Projects/AaronHandlemanLab1/AaronHandlemanLab1/GameBoardHeader.h",
+		"/C/Users/Aaron/Documents/DND CHARACTER TEMPLATE.txt",
+		"/C/Users/Aaron/AppData/Local/Temp/Temp2_exe1-grading.zip/exe1/bash_history_key.txt",
+		"/C/Users/Aaron/AppData/Local/Temp/Temp2_exe1-grading.zip/exe1/TheOnion_key.txt",
+		"/C/Users/Aaron/AppData/Local/Temp/Temp2_exe1-grading.zip/exe1/exe1-grade.txt",
+		"/C/Users/Aaron/Downloads/cse361s_exe1_grader_list.csv",
+		"/Z/cse361_sp_18_grade/exercise/cse361-catejiang/exe1/exe1-grade.txt",
+		"/Z/cse361_sp_18_grade/exercise/cse361-catejiang/exe1/TheOnion.txt",
+		"/Z/cse361_sp_18_grade/exercise/cse361-catejiang/exe1/bash_history.txt",
+		"/C/Users/Aaron/AppData/Local/Temp/Temp2_exe1-grading.zip/exe1/exe1-rubric.txt",
+		"/C/Users/Aaron/AppData/Local/Temp/Temp2_exe1-grading.zip/exe1/TheOnion.txt",
+		"/C/Users/Aaron/Downloads/exe1-grading.zip",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/main.c",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/job.sh",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/testcores.sh",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/pthread_sort.c",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/cilk_sort.c",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/test.sh",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/qsub.sh",
+		"/D/Games/FakeApp/FakeApp/Commands.txt",
+		"/D/Games/FakeApp/FakeApp/aaron_data/alignments.json",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/01core.out",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/08core.out",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/test_serial.sh",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/04core.out",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/16core.out",
+		"/C/Users/Aaron/Downloads/ffmpeg-20180201-b1af0e2-win64-static/README.txt",
+		"/C/Users/Aaron/Downloads/ffmpeg-20180201-b1af0e2-win64-static/doc/faq.html",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/sort.out",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/1core.out",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/test2.sh",
+		"/Z/cse539/proj1-mergesort-ahandleman-p-olson/test8.sh",
+		"/Z/CSE422~1/project3/webcrawler/project3a/crawler.c",
+		"/Z/CSE422~1/project3/webcrawler/project3a/._crawler.c",
+		"/Z/CSE422~1/project2/cse422/la2/mem.h",
+		"/Z/CSE422~1/project2/cse422/la2/mem.c",
+		"/Z/CSE422~1/project2/aaron_mem/mem.c",
+		"/D/wikispace/_",
+		"/C/Users/Aaron/workspace/Webcrawler/fakeInternet/test_script.py",
+		"/C/Users/Aaron/workspace/Webcrawler/fakeInternet/testfile8",
+		"/C/Users/Aaron/workspace/Webcrawler/fakeInternet/testfileANSWERS1",
+		"/C/Users/Aaron/workspace/Webcrawler/fakeInternet/test_script_random.py",
+		"/C/Users/Aaron/workspace/Webcrawler/fakeInternet/testfileANSWERS4",
+		"/D/Static_developement/webgames/index.html",
+		"/D/Static_developement/webgames/game.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"rightmost",
+			"length",
+			"plist",
+			"solution",
+			"2",
+			"fiber_to_free",
+			"provably_good_steal_maybe",
+			"Cilk_set_return",
+			"return_value",
+			"init_fiber_run",
+			"set_return",
+			"Cilk_sync",
+			"suspend",
+			"increment_exce",
+			"{\n",
+			"deque_",
+			"setup_closures_in_stacklet",
+			"setup_call_parent_closure_helper",
+			"suspend",
+			"provably_good_steal_maybe",
+			"setup_for_execution",
+			"do_what_it_says",
+			"promote_child",
+			"do_what_it_says",
+			"deque",
+			"setup_for_sync",
+			"SYNC",
+			"runtime",
+			"false",
+			"true",
+			"node->",
+			"data",
+			"* ",
+			"buffer_data",
+			"data_dequeue",
+			"struct data_dequeue",
+			"target",
+			"]\n",
+			"7",
+			"pseq_merge",
+			" seq_merge",
+			"cilk_merge",
+			"cilk_sort_helper",
+			"/*cilk_spawn*/",
+			"/*cilk_sync*/",
+			"cilk_sync",
+			"cilk_spawn",
+			"/*cilk_sync*/",
+			"/*cilk_spawn*/",
+			"PRINT_DEBUG",
+			"seq_sort",
+			"cilk_merge",
+			"cilk_sort",
+			"cilk_sync",
+			"cilk_spawn",
+			"GNU",
+			"\\",
+			"cell.getAttribute('data-contents')",
+			"console.log\\(",
+			" ;[^\\n]*| \\n",
+			" ;[^\\n]*|\\n\\n",
+			" ;[^\\n]*| \\n",
+			";[^\\n]* | \\n",
+			";[^\\n]*",
+			";[^\\n]* | \\n",
+			";[^\\n]*",
+			";[^\\n]* | \\n",
+			";[^\\n]* ",
+			";[^\\n]*  | \\n",
+			";[^\\n]*",
+			";[^\\n]* | \\n",
+			";[^\\n]*",
+			";[^\\n]* | \\n",
+			";[^\\n]*",
+			")\n",
+			"app.testvars.currentTest",
+			"testO",
+			"testVars",
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\n                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad\n                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea\n                                commodo consequat.",
+			"[i]",
+			"testvars",
+			"devi",
+			"devicelist",
+			"Li",
+			"device",
+			".hidde",
+			"Servicelist.hidden = ",
+			"Servicelist.hidden = tr",
+			"\\s?",
+			"select-val",
+			"['select-val']",
+			");\n",
+			".select-val",
+			"id INT UNSIGNED NOT NULL AUTO_INCREMENT,",
+			"a",
+			"id INT UNSIGNED NOT NULL AUTO_INCREMENT,",
+			"current_chatroom",
+			"data[",
+			"'];\n",
+			"cur_date",
+			"currents",
+			"lampControl",
+			"colorQuickSet",
+			"colorSliders",
+			"timerControls",
+			"uiShows",
+			"uiShowco",
+			"uiShowSliderScreen",
+			"hidden",
+			"src=\"/",
+			"utf8",
+			"	",
+			"'",
+			"event[6]",
+			"event[2]",
+			"event[3]",
+			"4",
+			"joined",
+			"dat",
+			"table",
+			";\n",
+			"%;\">",
+			"document",
+			"documentRoot",
+			"document",
+			"/br",
+			"br",
+			"uiOnConnect"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"leftmost",
+			"p",
+			"sol",
+			"src",
+			"0",
+			"1",
+			"(*node)->",
+			"struct buffer_data",
+			"struct data_dequeue",
+			" pseq_merge",
+			"aaron_cilk_merge",
+			"CILK_DEBUGGING(cilk_spawn)",
+			"CILK_DEBUGGING(cilk_sync)",
+			"/*cilk_sync*/",
+			"/*cilk_spawn*/",
+			"cilk_sync",
+			"cilk_spawn",
+			"//",
+			"seq_pthread_sort",
+			"pthread_merge",
+			"pthread_sort",
+			"/*cilk_sync*/",
+			"/*cilk_spawn*/",
+			"contents",
+			"contests",
+			"debug(1, ",
+			"",
+			"txtOut.textContent",
+			"test",
+			"testvars",
+			"Details of the achievement.",
+			"[app.testVars.i]",
+			"testVars",
+			"",
+			"selectval",
+			".selectval",
+			"['select-val']",
+			"id INT UNSIGNED NOT NULL AUTO_INCREMENT,\n	created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n	updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+			"in_date",
+			"lampControlPanel",
+			"colorQuickSetPanel",
+			"colorSlidersPanel",
+			"timerControlPanel",
+			"src=\"https://wustlcse104.github.io/09-facebook-clone-ahandleman/",
+			"latin1",
+			"    ",
+			"\"",
+			"event['time']",
+			"event['day']",
+			"event['month']",
+			"'year'",
+			"day",
+			"br/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								221,
+								221
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mandelbrot.html",
+					"settings":
+					{
+						"buffer_size": 433,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								425,
+								16
+							]
+						],
+						"settings":
+						{
+							"auto_name": "mandelbrot.html",
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "hull_algorithms.js",
+					"settings":
+					{
+						"buffer_size": 16240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15735,
+								15735
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1684.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "circle_mod_multiplication.html",
+					"settings":
+					{
+						"buffer_size": 872,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								779,
+								779
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "hull_algorithms.html",
+					"settings":
+					{
+						"buffer_size": 555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								539,
+								539
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "circle_mod_multiplication.js",
+					"settings":
+					{
+						"buffer_size": 2068,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2019,
+								2019
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 89.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 94.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/Aaron/Documents/SHADOW_ASSASSIN_Warlock-Rogue.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 308.0,
+	"status_bar_visible": true
+}

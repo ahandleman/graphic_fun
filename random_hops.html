@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+    <script src="random_hops.js"></script>
+  </head>
+  <body>
+  	Number of Points <input id="num_points" type="number" value="3">
+  	Number of Hops <input id="num_hops" type="number" value="9">
+    Distance per Hop (0 to 1) <input id="dist_towards" type="number" value="0.5"> <br>
+    Time: <input id="time" type="number" value="10">
+    Ticks per Second: <input id="rate" type="number" value="20">
+    Trials per Tick <input id="trials_per_tick" type="number" value="1000"> <br>
+    <button onclick="run()"> Run </button> <button onclick="stop()"> Stop </button> <br>
+    <button onclick="run_shaded()"> Run Shaded (use with small hop number) </button> <br>
+    </body>
+</html>
