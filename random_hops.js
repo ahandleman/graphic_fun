@@ -53,7 +53,7 @@ function tick() {
     var x = x_size/2;
     var y = y_size/2;
     for(var j = 0; j < num_hops; j++) {
-      if (run_shaded) {
+      if (shaded) {
         stroke(colors[j]);
         ellipse(x,y, 5, 5);
       }
