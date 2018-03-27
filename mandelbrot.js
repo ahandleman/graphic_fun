@@ -1,15 +1,15 @@
+var y_size = 1000;
+var x_size = 1000;
 var step_size = 2;
-var curr_depth = 0;
+var curr_depth = 1;
 var darkness = 255;
-var target_depth = 100*step_size;
+var target_depth = Math.pow(step_size, 10);
 var running = false;
 var rate = 20;
 
 function setup() {
-// Sets the screen to be 720 pixels wide and 400 pixels high
-createCanvas(2000, 2000);
+createCanvas(x_size, y_size);
 noLoop();
-background(255,255,255);
 }
 
 function iterateEquation(real, imaginary)
@@ -27,15 +27,14 @@ function iterateEquation(real, imaginary)
 		Ti = Zi * Zi;
 	}
 
-	return [n, Tr, Ti];
+	return n;
 }
 
 function draw() {
-// Set the background to light grey and turn off the fill color
 stroke(darkness);
-for(var i = 0; i < 2000; i++) {
-	for(var j = 0; j < 2000; j++) {
-		if (iterateEquation((j/500) - 2, (i/500) - 2)[0] == curr_depth) {
+for(var i = 0; i < y_size; i++) {
+	for(var j = 0; j < x_size; j++) {
+		if (iterateEquation((4*j/x_size) - 2, (4*i/y_size) - 2) == curr_depth) {
 			point(i,j);
 		};
 	}
@@ -43,24 +42,25 @@ for(var i = 0; i < 2000; i++) {
 }
 
 function reset(event) {
-	curr_depth = 0;
-	running = true;
-	tick();
-	running = false;
+	running = false;	
+	background(255);
 }
 
 function button(event) {
-	running = !running;
-	console.log("running: " + running);
+	reset(0);
+	curr_depth = 1;
+	running = true;
+	target_depth = Math.pow(step_size, document.getElementById("Depth").value);
 }
 
 function tick() {
-	darkness = 255 - ((curr_depth/target_depth)*255);
 	if(running && curr_depth < target_depth) {
-		curr_depth += step_size;
+		darkness = 255 - ((Math.log(curr_depth)/Math.log(target_depth))*255);
+		document.getElementById("curr_depth").value = curr_depth;
 		redraw();
+		curr_depth *= step_size;
 	}
-	setTimeout(tick, 100);
+	setTimeout(tick, 2000);
 }
 
 tick();
