@@ -5,7 +5,7 @@ var num_points = 25;
 var points = [];
 var curr_time = 0;
 var max_time = 0;
-var algorithm = 2;
+var algorithm = 1;
 
 function assert(message, bool) {
 	if (!bool) {
@@ -265,7 +265,7 @@ function button(event) {
 		graham_alg();
 		break;
 		case 2:
-		our_merge_hull();
+		quick_hull();
 		break;
 	}
 	curr_time = 0;
@@ -384,192 +384,6 @@ function points_to_angle(i1, i2, i3) {
 	var p2p3 = Math.sqrt(Math.pow(p3.x-p2.x,2)+Math.pow(p3.y-p2.y,2));
 	var p1p2 = Math.sqrt(Math.pow(p2.x-p1.x,2)+Math.pow(p2.y-p1.y,2));
 	return Math.acos((p2p3*p2p3+p1p3*p1p3-p1p2*p1p2)/(2*p2p3*p1p3));
-}
-
-function search_hull(p1, p2, hull, time_track) {
-	var n = hull.length;
-	var half = Math.floor(n/2);
-	add_red_line(p2, hull[0], time_track);
-	add_red_line(p2, hull[n-1], time_track);
-	//fix small cases so we don't get weird out of bounds errors
-	if (n == 1) {
-		return [hull[0], time_track];
-	}
-	if (n == 2) {
-		if (points_to_angle(p1, p2, hull[0]) < points_to_angle(p1, p2, hull[1])) {
-			return [hull[1], time_track];
-		} else {
-			return [hull[0], time_track];
-		}
-	}
-	if (half == 0) {
-		half++;
-	}
-
-	//real alg
-	if(points_to_angle(p1, p2, hull[0]) < points_to_angle(p1, p2, hull[1])) { //angle 0 increasing
-		if(points_to_angle(p1, p2, hull[half]) < points_to_angle(p1, p2, hull[half + 1])) { //angle half increasing
-			if (points_to_angle(p1, p2, hull[half]) < points_to_angle(p1, p2, hull[0])) { //if half < 0
-				return search_hull(p1, p2, hull.slice(0, half, ++time_track));
-			} else {
-				return search_hull(p1, p2, hull.slice(half, n), ++time_track);
-			}
-		} else { //angle half decreasing
-			if (points_to_angle(p1, p2, hull[half - 1]) < points_to_angle(p1, p2, hull[half])) {
-				return [hull[half], time_track]; //if half is peak
-			} else {
-				return search_hull(p1, p2, hull.slice(0, half), ++time_track);
-			}
-		}
-	} else { //angle 0 is decreasing
-		if(points_to_angle(p1, p2, hull[n-1]) < points_to_angle(p1, p2, hull[0])) {
-			return [hull[0], time_track]; //if 0 is peak
-		}
-		if(points_to_angle(p1, p2, hull[half]) < points_to_angle(p1, p2, hull[half + 1])) {  //angle half increasing
-			return search_hull(p1, p2, hull.slice(half, n), ++time_track);  //peak in second half
-		} else { //angle half decreasing
-			if (points_to_angle(p1, p2, hull[half - 1]) < points_to_angle(p1, p2, hull[half])) {
-				return [hull[half], time_track]; //if half is peak
-			} else {
-				if (points_to_angle(p1, p2, hull[half]) < points_to_angle(p1, p2, hull[0])) { //if half < 0
-					return search_hull(p1, p2, hull.slice(half, n), ++time_track);
-				} else {
-					return search_hull(p1, p2, hull.slice(0, half), ++time_track);
-				}
-			}
-		}
-	}
-}
-
-//reorder so that the point returned by searchhull is first in the array, but array is still clockwise
-function search_reorder(p1, hull, time_track) {
-	hull.pop();
-	points.push({
-		x: points[p1].x,
-		y: points[p1].y + 1
-	});
-	var p2 = points.length-1;
-	var tmp = search_hull(p2, p1, hull, time_track);
-	points.pop();
-	var new_start = hull.indexOf(tmp[0]);
-	var retval = hull.slice(new_start, hull.length).concat(hull.slice(0, new_start));
-	return [retval, tmp[1]];
-
-
-}
-
-function our_merge_hull_helper(point_list, in_time) {
-	console.log(in_time);
-	console.log(point_list);
-	var time_track = in_time;
-	var n = Math.floor(point_list.length);
-	var half = Math.floor(n/2);
-	if (n <= 6) {
-		var helper_ret = gift_wrap_helper(point_list, true);
-		toggle_blue_line(helper_ret[helper_ret.length-1], helper_ret[0], time_track);
-		for(var i = 1; i < helper_ret.length; i++) {
-			toggle_blue_line(helper_ret[i], helper_ret[i-1], time_track);
-		}
-		return [gift_wrap_helper(point_list, true), ++time_track];
-	}
-	//recursive calls
-	var tmp = our_merge_hull_helper(point_list.slice(0, half), time_track);
-	time_track = tmp[1];
-	var h1 = tmp[0];
-	tmp = our_merge_hull_helper(point_list.slice(half, n), time_track);
-	time_track = tmp[1];
-	var h2 = tmp[0];
-
-
-	clean_purple(point_list, time_track); //set existing hulls to purple and start using blue
-	convert_blue_purple(point_list, time_track++);
-	console.log("h1: " + h1);
-	console.log("h2: " + h2);
-	var sol = [];
-	var firstpoint;
-	var last_used;
-	var i1;
-	var i2;
-	sol.push(h1[0]);
-	firstpoint = h1[0];
-	i1 = 1;
-	i2 = 0;
-	tmp = search_reorder(h1[0], h2, time_track);
-	time_track = tmp[1];
-	h2 = tmp[0];
-	h2.push(h2[0]);
-	points.push({
-		x: points[h1[0]].x,
-		y: points[h1[0]].y + 1
-	});
-	var p2 = points.length-1;
-	if (points_to_angle(p2, h1[0], h2[i2]) > points_to_angle(p2, h1[0], h1[i1])) {
-		toggle_blue_line(h1[0], h2[i2], time_track++);
-		sol.push(h2[i2++]);
-		last_used = 2;
-	} else {
-		toggle_blue_line(h1[0], h1[i1], time_track++);
-		sol.push(h1[i1++]);
-		last_used = 1;
-	}
-	points.pop();
-	console.log("h1: " + h1);
-	console.log("h2: " + h2);
-	do {
-		if(last_used == 1) {
-			while((orient(sol[sol.length-2], sol[sol.length-1], h2[(i2+1)%h2.length]) < 0) && points_to_angle(sol[sol.length-2], sol[sol.length-1], h2[i2%h2.length]) < points_to_angle(sol[sol.length-2], sol[sol.length-1], h2[(i2+1)%h2.length])) {
-				i2++;
-				toggle_highlight(h2[i2-1], time_track);
-				toggle_highlight(h2[i2], time_track);
-				add_yellow_line(sol[sol.length-1], h2[i2], time_track++);
-			}
-		} else {
-			while(i1 < (h1.length-2) && (orient(sol[sol.length-2], sol[sol.length-1], h1[(i1+1)%h1.length]) < 0) && points_to_angle(sol[sol.length-2], sol[sol.length-1], h1[i1%h1.length]) < points_to_angle(sol[sol.length-2], sol[sol.length-1], h1[(i1+1)%h1.length])) {
-				i1++;
-				assert("i1 can't be > length", i1 <= h1.length);
-				toggle_highlight(h1[i1-1], time_track);
-				toggle_highlight(h1[i1], time_track);
-				add_yellow_line(sol[sol.length-1], h1[i1%h1.length], time_track++);
-			}
-		}
-		if (i2 < h2.length && orient(sol[sol.length-2], sol[sol.length-1], h2[i2]) < 0 && points_to_angle(sol[sol.length-2], sol[sol.length-1], h1[i1]) < points_to_angle(sol[sol.length-2], sol[sol.length-1], h2[i2])) {
-			sol.push(h2[i2]);
-			i2++;
-			assert("i2 can't be > 4*length", i2 < 4*h2.length);
-			toggle_highlight(h2[(i2 + h2.length -1)%h2.length], time_track);
-			if (i2 < h2.length) {
-				toggle_highlight(h2[i2%h2.length], time_track);
-			}
-			toggle_blue_line(sol[sol.length-2], sol[sol.length-1], time_track);
-			add_yellow_line(sol[sol.length-1], h1[i1%h1.length], time_track++);
-			last_used = 2;
-		} else {
-			sol.push(h1[i1%h1.length]);
-			i1++;
-			assert("i1 can't be > length", i1 <= h1.length);
-			toggle_highlight(h1[(i1 + h1.length -1) % h1.length], time_track);
-			if (i1 < h1.length) {
-				toggle_highlight(h1[i1%h1.length], time_track);
-			}
-			toggle_blue_line(sol[sol.length-2], sol[sol.length-1], time_track);
-			add_yellow_line(sol[sol.length-1], h2[i2%h2.length], time_track++);
-			last_used = 1;
-		}
-	} while (h1[i1] != firstpoint);
-	return [sol, ++time_track];
-}
-
-function our_merge_hull() {
-	sort_points();
-	var plist = [];
-	for(var i = 0; i < num_points; i++) {
-		plist.push(i);
-	}
-	var tmp = our_merge_hull_helper(plist, 0);
-	max_time = tmp[1];
-	convert_blue_black(max_time++);
-	clean_highlight_blue();
-	clean_purple(plist);
 }
 
 tick();
