@@ -5,8 +5,69 @@
 	<script src="p4_heuristic.js"></script>
 </head>
 <body>
-	<h3> Worker 0 </h3>
-	<div class="tf-tree" data-worker="0000">
+	<div>
+		<h1>
+			Rules
+		</h1>
+		<ul>
+			<li>
+				Partition colorings are shared, node colorings are not
+			</li>
+			<li>
+				To check a non-leaf node, check its leftmost child
+			</li>
+			<li>
+				On a failed check, mark all uncolored parents and their descendants as red
+			</li>
+			<li>
+				On a successful check, mark all uncolored parents as yellow
+			</li>
+			<li>
+				Terminate when root node is colored and there are no yellow nodes with uncolored children
+			</li>
+		</ul>
+		<h1>
+			Lemmas
+		</h1>
+		<h2>
+			Lemma 1
+		</h2>
+		<p>
+			If a worker marks a partition green, it has checked or will check both children of all parent nodes.
+		</p>
+		<p>
+			This is because it cannot terminate until all yellow nodes have colored children, and all nodes are uncolored until checked.
+		</p>
+		<h2>
+			Lemma 2
+		</h2>
+		<p>
+			If a worker marks a partition red, another worker has checked or will check all children of all red parent nodes.
+		</p>
+		<p>
+			This is because in order for a partition to be marked red, another worker must have already marked that node green itself.  By lemma 1, that worker will check all children of all parent nodes.
+		</p>
+		<h2>
+			Lemma 3
+		</h2>
+		<p>
+			If a worker checks a node, then both children of that node will be checked by some worker.
+		</p>
+		<p>
+			When a worker checks a node, it can either mark the node red or yellow.  If it marks it yellow, it must have marked a partition green, and lemma 1 applies.  If it marks it red, it must have marked a partition red, and lemma 2 applies.  Regardless of which, the node will be checked by SOME worker.
+		</p>
+		<h2>
+			Lemma 4
+		</h2>
+		<p>
+			If a worker checks the root node, all nodes will be checked by at least one worker.
+		</p>
+		<p>
+			We can recursively apply lemma 3 until we hit leaves to see that this is true.
+		</p>
+	</div>
+	<h3 class="worker_header" data-wn="w0"> Worker 0 </h3>
+	<div class="tf-tree w0" style="display: none;" data-worker="0000">
 		<ul>
 			<li>
 				<span class="tf-nc xxxx tree_node"> xxxx </span>
@@ -133,8 +194,8 @@
 			</li>
 		</ul>
 	</div>
-	<h3> Worker 5 </h3>
-	<div class="tf-tree" data-worker="0101">
+	<h3 class="worker_header" data-wn="w1"> Worker 1 </h3>
+	<div class="tf-tree w1" style="display: none;" data-worker="0001">
 		<ul>
 			<li>
 				<span class="tf-nc xxxx tree_node"> xxxx </span>
@@ -149,7 +210,7 @@
 										<span class="tf-nc 000x tree_node"> 000x </span>
 										<ul>
 											<li>
-												<span class="tf-nc tree_leaf"> 0000 </span>
+												<span class="tf-nc tree_leaf"> 0000  </span>
 											</li>
 											<li>
 												<span class="tf-nc tree_leaf"> 0001 </span>
@@ -261,67 +322,1797 @@
 			</li>
 		</ul>
 	</div>
-	<h1>
-		Rules
-	</h1>
-	<ul>
-		<li>
-			Partition colorings are shared, node colorings are not
-		</li>
-		<li>
-			To check a non-leaf node, check its leftmost child
-		</li>
-		<li>
-			On a failed check, mark all uncolored parents as red
-		</li>
-		<li>
-			On a successful check, mark all uncolored parents as yellow
-		</li>
-		<li>
-			Terminate when root node is colored and there are no yellow nodes with uncolored children
-		</li>
-	</ul>
-	<h1>
-		Lemmas
-	</h1>
-	<h2>
-		Lemma 1
-	</h2>
-	<p>
-		If a worker marks a partition green, it has checked or will check both children of all parent nodes.
-	</p>
-	<p>
-		This is because it cannot terminate until all yellow nodes have colored children, and all nodes are uncolored until checked.
-	</p>
-	<h2>
-		Lemma 2
-	</h2>
-	<p>
-		If a worker marks a partition red, another worker has checked or will check all children of all red parent nodes.
-	</p>
-	<p>
-		This is because in order for a partition to be marked red, another worker must have already marked that node green itself.  By lemma 1, that worker will check all children of all parent nodes.
-	</p>
-	<h2>
-		Lemma 3
-	</h2>
-	<p>
-		If a worker checks a node, then both children of that node will be checked by some worker.
-	</p>
-	<p>
-		When a worker checks a node, it can either mark the node red or yellow.  If it marks it yellow, it must have marked a partition green, and lemma 1 applies.  If it marks it red, it must have marked a partition red, and lemma 2 applies.  Regardless of which, the node will be checked by SOME worker.
-	</p>
-	<h2>
-		Lemma 4
-	</h2>
-	<p>
-		If a worker checks the root node, all nodes will be checked by at least one worker.
-	</p>
-	<p>
-		We can recursively apply lemma 3 until we hit leaves to see that this is true.
-	</p>
-
-
-
+	<h3 class="worker_header" data-wn="w2"> Worker 2 </h3>
+	<div class="tf-tree w2" style="display: none;" data-worker="0010">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w3"> Worker 3 </h3>
+	<div class="tf-tree w3" style="display: none;" data-worker="0011">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w4"> Worker 4 </h3>
+	<div class="tf-tree w4" style="display: none;" data-worker="0100">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w5"> Worker 5 </h3>
+	<div class="tf-tree w5" style="display: none;" data-worker="0101">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w6"> Worker 6 </h3>
+	<div class="tf-tree w6" style="display: none;" data-worker="0110">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w7"> Worker 7 </h3>
+	<div class="tf-tree w7" style="display: none;" data-worker="0111">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w8"> Worker 8 </h3>
+	<div class="tf-tree w8" style="display: none;" data-worker="1000">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w9"> Worker 9 </h3>
+	<div class="tf-tree w9" style="display: none;" data-worker="1001">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w10"> Worker 10 </h3>
+	<div class="tf-tree w10" style="display: none;" data-worker="1010">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w11"> Worker 11 </h3>
+	<div class="tf-tree w11" style="display: none;" data-worker="1011">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w12"> Worker 12 </h3>
+	<div class="tf-tree w12" style="display: none;" data-worker="1100">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w13"> Worker 13 </h3>
+	<div class="tf-tree w13" style="display: none;" data-worker="1101">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w14"> Worker 14 </h3>
+	<div class="tf-tree w14" style="display: none;" data-worker="1110">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<h3 class="worker_header" data-wn="w15"> Worker 15 </h3>
+	<div class="tf-tree w15" style="display: none;" data-worker="1111">
+		<ul>
+			<li>
+				<span class="tf-nc xxxx tree_node"> xxxx </span>
+				<ul>
+					<li>
+						<span class="tf-nc 0xxx tree_node"> 0xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 00xx tree_node"> 00xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 000x tree_node"> 000x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0000  </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 001x tree_node"> 001x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 01xx tree_node"> 01xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 010x tree_node"> 010x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 011x tree_node"> 011x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 0110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 0111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<span class="tf-nc 1xxx tree_node"> 1xxx </span>
+						<ul>
+							<li>
+								<span class="tf-nc 10xx tree_node"> 10xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 100x tree_node"> 100x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1000 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1001 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 101x tree_node"> 101x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1010 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1011 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span class="tf-nc 11xx tree_node"> 11xx </span>
+								<ul>
+									<li>
+										<span class="tf-nc 110x tree_node"> 110x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1100 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1101 </span>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="tf-nc 111x tree_node"> 111x </span>
+										<ul>
+											<li>
+												<span class="tf-nc tree_leaf"> 1110 </span>
+											</li>
+											<li>
+												<span class="tf-nc tree_leaf"> 1111 </span>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
