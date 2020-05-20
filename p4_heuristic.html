@@ -17,10 +17,13 @@
 				To check a non-leaf node, check its leftmost child
 			</li>
 			<li>
-				On a failed check, mark all uncolored parents and their descendants as red
+				To check a partition, check if any other workers have claimed it, if none have, success
 			</li>
 			<li>
-				On a successful check, mark all uncolored parents as yellow
+				On a failed check, mark all uncolored ancestors and their descendants as red
+			</li>
+			<li>
+				On a successful check, mark all uncolored ancestors as yellow
 			</li>
 			<li>
 				Terminate when root node is colored and there are no yellow nodes with uncolored children
@@ -33,19 +36,19 @@
 			Lemma 1
 		</h2>
 		<p>
-			If a worker marks a partition green, it has checked or will check both children of all parent nodes.
+			If a worker marks a partition green, it has checked or will check both children of all ancestor nodes.
 		</p>
 		<p>
-			This is because it cannot terminate until all yellow nodes have colored children, and all nodes with a yellow parent are uncolored until checked.
+			This is because it cannot terminate until all yellow nodes have colored children, and all nodes with a yellow ancestor are uncolored until checked.
 		</p>
 		<h2>
 			Lemma 2
 		</h2>
 		<p>
-			If a worker marks a partition red, another worker has checked or will check all children of all red parent nodes.
+			If a worker marks a partition red, another worker has checked or will check all children of all red ancestor nodes.
 		</p>
 		<p>
-			This is because in order for a partition to be marked red, another worker must have already marked that node green itself.  By lemma 1, that worker will check all children of all parent nodes.
+			This is because in order for a partition to be marked red, another worker must have already marked that node green itself.  By lemma 1, that worker will check all children of all ancestor nodes.
 		</p>
 		<h2>
 			Lemma 3
